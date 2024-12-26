@@ -34,6 +34,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html {
@@ -325,10 +329,27 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.1);
+}
+
+.project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
 }
 
 .project-content {

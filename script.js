@@ -318,6 +318,54 @@ const portfolioFilter = (() => {
     });
 })();
 
+// Screenshot Prevention
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+    // Prevent PrintScreen
+    if (e.key === 'PrintScreen') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Prevent Ctrl+P (Print)
+    if (e.ctrlKey && e.key === 'p') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Prevent Ctrl+Shift+I (Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Prevent Ctrl+Shift+C (Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Prevent Ctrl+S (Save)
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+    }
+
+    // Prevent Ctrl+U (View Source)
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable text selection
+document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+});
+
 // Initialize all animations on load
 window.addEventListener('load', () => {
     animateProgressBars();
