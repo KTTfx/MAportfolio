@@ -366,6 +366,65 @@ document.addEventListener('selectstart', function(e) {
     e.preventDefault();
 });
 
+// Mobile Screenshot Prevention
+document.addEventListener('DOMContentLoaded', function() {
+    // Detect mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Create watermark overlay
+        const watermark = document.createElement('div');
+        watermark.className = 'mobile-watermark';
+        document.body.appendChild(watermark);
+
+        // Handle visibility change (when user switches apps or takes screenshot)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Blur content when app is in background
+                document.body.classList.add('content-hidden');
+            } else {
+                document.body.classList.remove('content-hidden');
+            }
+        });
+
+        // Prevent touch selection
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Prevent zoom
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Add timestamp to detect screenshots
+        let lastTime = Date.now();
+        setInterval(() => {
+            const watermarkText = document.createElement('div');
+            watermarkText.className = 'watermark-text';
+            watermarkText.textContent = new Date().toISOString();
+            
+            // Remove old timestamp
+            const oldText = document.querySelector('.watermark-text');
+            if (oldText) {
+                oldText.remove();
+            }
+            
+            watermark.appendChild(watermarkText);
+            lastTime = Date.now();
+        }, 100);
+    }
+});
+
+// Prevent iOS text selection
+document.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+}, { passive: false });
+
 // Initialize all animations on load
 window.addEventListener('load', () => {
     animateProgressBars();
