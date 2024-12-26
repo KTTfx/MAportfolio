@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maame Akua Gyan | Writer & Project Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <img src="MA.jpg" alt="Maame Akua Gyan" class="profile-image">
+                <div class="hero-text">
+                    <h1>Maame Akua Gyan</h1>
+                    <p class="tagline">Writer | Project Manager | Mental Health Advocate</p>
+                    <p class="intro">Crafting narratives that inspire, managing projects that transform, and advocating for mental wellness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="section-container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="text">
+                        <p>Greetings! I'm Maame Akua Gyan, a passionate writer and project manager with roots in the historic city of Cape Coast, where I attended the prestigious Holy Child School. My journey has been one of continuous growth, creativity, and dedication to making a difference in people's lives.</p>
+                        <p>As a writer, I weave words into stories that touch hearts and transform minds. My love for books has not only shaped my writing style but has also given me a unique perspective on storytelling and human experiences. This passion for narratives seamlessly blends with my role as a project manager, where I orchestrate ideas into reality.</p>
+                        <p>Beyond my professional endeavors, I'm a devoted mental health advocate. I believe in creating spaces where conversations about mental well-being are normalized and supported. My work often reflects this commitment, whether through written pieces that explore the human psyche or projects that promote emotional wellness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="section-container">
+                <h2>Let's Connect</h2>
+                <p>I'm always excited to collaborate on new projects and initiatives!</p>
+                <div class="contact-links">
+                    <a href="mailto:Gyan.marieann.ma@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Gyan.marieann.ma@gmail.com</span>
+                    </a>
+                    <a href="https://twitter.com/marieanngyan" class="contact-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <span>@marieanngyan</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maame Akua Gyan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    </script>
+</body>
+</html>
