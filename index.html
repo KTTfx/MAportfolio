@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maame Akua Gyan | Writer & Project Manager</title>
+    <title>M-A Maame Akua Gyan | Writer & Project Manager</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,12 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
+                <button class="close-menu" aria-label="Close Menu">
+                    <i class="fas fa-times"></i>
+                </button>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -27,7 +31,7 @@
             <div class="hero-content">
                 <img src="MA.jpg" alt="Maame Akua Gyan" class="profile-image">
                 <div class="hero-text">
-                    <h1>Maame Akua Gyan</h1>
+                    <h1>M-A Gyan</h1>
                     <p class="tagline">Writer | Project Manager | Mental Health Advocate</p>
                     <p class="intro">Crafting narratives that inspire, managing projects that transform, and advocating for mental wellness.</p>
                 </div>
@@ -42,6 +46,77 @@
                         <p>Greetings! I'm Maame Akua Gyan, a passionate writer and project manager with roots in the historic city of Cape Coast, where I attended the prestigious Holy Child School. My journey has been one of continuous growth, creativity, and dedication to making a difference in people's lives.</p>
                         <p>As a writer, I weave words into stories that touch hearts and transform minds. My love for books has not only shaped my writing style but has also given me a unique perspective on storytelling and human experiences. This passion for narratives seamlessly blends with my role as a project manager, where I orchestrate ideas into reality.</p>
                         <p>Beyond my professional endeavors, I'm a devoted mental health advocate. I believe in creating spaces where conversations about mental well-being are normalized and supported. My work often reflects this commitment, whether through written pieces that explore the human psyche or projects that promote emotional wellness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="section-container">
+                <h2 class="section-header">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Event 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://source.unsplash.com/random/800x600/?concert,music-festival" alt="Music Concert Event">
+                        </div>
+                        <div class="project-content">
+                            <h3>Summer Music Festival</h3>
+                            <p>A vibrant three-day music festival featuring local and international artists, attracting over 5,000 attendees.</p>
+                            <div class="project-tags">
+                                <span>Event Planning</span>
+                                <span>Music</span>
+                                <span>Festival</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://source.unsplash.com/random/800x600/?theatre,performance" alt="Theatre Performance">
+                        </div>
+                        <div class="project-content">
+                            <h3>Theatre in the Park</h3>
+                            <p>An outdoor theatrical experience showcasing Shakespeare's classics under the stars, engaging over 2,000 theatre enthusiasts.</p>
+                            <div class="project-tags">
+                                <span>Theatre</span>
+                                <span>Cultural</span>
+                                <span>Outdoor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://source.unsplash.com/random/800x600/?food-festival,culinary" alt="Food Festival">
+                        </div>
+                        <div class="project-content">
+                            <h3>Culinary Arts Festival</h3>
+                            <p>A celebration of local cuisine featuring 30+ restaurants, cooking demonstrations, and food workshops.</p>
+                            <div class="project-tags">
+                                <span>Food</span>
+                                <span>Culture</span>
+                                <span>Workshop</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://source.unsplash.com/random/800x600/?art-exhibition,gallery" alt="Art Exhibition">
+                        </div>
+                        <div class="project-content">
+                            <h3>Contemporary Art Show</h3>
+                            <p>A month-long exhibition showcasing works from emerging artists, including interactive installations and workshops.</p>
+                            <div class="project-tags">
+                                <span>Art</span>
+                                <span>Exhibition</span>
+                                <span>Interactive</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,11 +148,18 @@
         // Mobile menu functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
+        const closeMenuBtn = document.querySelector('.close-menu');
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
             mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
         });
 
         // Close mobile menu when clicking a link
